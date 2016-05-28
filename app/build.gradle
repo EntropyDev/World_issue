@@ -38,12 +38,15 @@ dependencies {
     compile 'com.android.support:design:23.3.0'
     compile 'com.android.support:support-v4:23.3.0'
     compile 'com.android.support:recyclerview-v7:23.3.0'
+    compile('com.crashlytics.sdk.android:crashlytics:2.5.5@aar') {
+        transitive = true;
+    }
 }
 repositories {
     flatDir {
         dirs 'libs'
     }
     jcenter()
-    maven { url 'https://maven.fabric.io/repo' }
+    maven { url 'https://maven.fabric.io/public' }
 
 }

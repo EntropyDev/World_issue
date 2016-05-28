@@ -6,60 +6,66 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <ScrollView
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        >
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="hiiiiiiiii"
+            android:layout_height="wrap_content"
+            android:text="Total population (2015) -1,300,000,000\n
+Gross national income per capita (PPP international $, 2013) -	5\n
+Life expectancy at birth m/f (years, 2015)               -67/70\n
+Probability of dying between 15 and 60 years m/f (per 1 000 population, 2013) 						239/158\n
+Total expenditure on health per capita (Intl $, 2013) 		215\n
+Total expenditure on health as % of GDP (2013) 			4.0\n\n"
             android:id="@+id/data"/>
 
 
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/V_minus"
+            android:text="V -"
+            android:layout_below="@id/data"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="center_horizontal" />
 
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/T_minus"
+            android:text="T -"
+            android:layout_gravity="center_horizontal" />
 
-    <Button
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:id="@+id/V_minus"
-        android:text="V -"
-        android:layout_below="@id/data"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-
-    <Button
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:id="@+id/submit"
-        android:text="Submit"
-        android:textColor="@color/colorAccent"
-
-        android:layout_gravity="center" />
-
-    <Button
+        <Button
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:id="@+id/M_minus"
         android:text="M -"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_gravity="center_horizontal|top" />
+        android:layout_gravity="center_horizontal" />
 
-    <Button
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:id="@+id/T_minus"
-        android:text="T -"
-        android:layout_gravity="right|top" />
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:id="@+id/submit"
+            android:text="Submit"
+            android:textColor="@color/colorAccent"
+
+            android:layout_gravity="center" />
+
     </LinearLayout>
     </ScrollView>
 </FrameLayout>
