@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -41,7 +42,7 @@ public class WorldFragment extends Fragment implements View.OnClickListener {
     IssuesFragment issuesFragment;
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
-    Button chicago,sydeny,hyb;
+    ImageButton chicago,sydeny,hyb;
   //  TextView score,score2;
     private OnFragmentInteractionListener mListener;
 
@@ -92,9 +93,9 @@ public class WorldFragment extends Fragment implements View.OnClickListener {
         //fragmentTransaction=fragmentManager.beginTransaction();
 
 
-        chicago=(Button)view.findViewById(R.id.chicago);
-        sydeny=(Button)view.findViewById(R.id.sydney);
-        hyb=(Button)view.findViewById(R.id.hyb);
+        chicago=(ImageButton)view.findViewById(R.id.chicago);
+        sydeny=(ImageButton)view.findViewById(R.id.sydney);
+        hyb=(ImageButton)view.findViewById(R.id.hyb);
 
         issuesFragment=new IssuesFragment();
         issuesFragment.setHasOptionsMenu(true);

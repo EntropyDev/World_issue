@@ -16,15 +16,17 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
-
 import java.util.Timer;
 import java.util.TimerTask;
-
+/*import com.twitter.sdk.android.Twitter;
+import com.twitter.sdk.android.core.TwitterAuthConfig;
+import io.fabric.sdk.android.Fabric;*/
 public class MainActivity extends AppCompatActivity implements WorldFragment.OnFragmentInteractionListener,IssuesFragment.OnFragmentInteractionListener,P.OnFragmentInteractionListener,S.OnFragmentInteractionListener,H.OnFragmentInteractionListener{
     TextView score1,score2,v_t,m_t,t_t;
     public static int  a;
-    Button v,m,t;
+    ImageButton v,m,t;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,9 +38,9 @@ public class MainActivity extends AppCompatActivity implements WorldFragment.OnF
         score2=(TextView)findViewById(R.id.score2);
 
 
-        v=(Button)findViewById(R.id.Volu);
-        m=(Button)findViewById(R.id.media);
-        t=(Button)findViewById(R.id.tech);
+        v=(ImageButton)findViewById(R.id.Volu);
+        m=(ImageButton)findViewById(R.id.media);
+        t=(ImageButton) findViewById(R.id.tech);
         v_t=(TextView)findViewById(R.id.Volu_f);
         m_t=(TextView)findViewById(R.id.M_T_f);
         t_t=(TextView)findViewById(R.id.Tech_f);
@@ -58,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements WorldFragment.OnF
         m.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               m_a[0] +=1;
+                m_a[0] +=1;
                 m_t.setText(String.valueOf(m_a[0]));
                 a-=70;
                 score2.setText(String.valueOf(a));
@@ -122,25 +124,25 @@ public class MainActivity extends AppCompatActivity implements WorldFragment.OnF
     }
 
 
-        @Override
-        public boolean onOptionsItemSelected (MenuItem item){
-            // Handle action bar item clicks here. The action bar will
-            // automatically handle clicks on the Home/Up button, so long
-            // as you specify a parent activity in AndroidManifest.xml.
-            int id = item.getItemId();
+    @Override
+    public boolean onOptionsItemSelected (MenuItem item){
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
 
-            //noinspection SimplifiableIfStatement
-            if (id == R.id.action_settings) {
-                return true;
-            }
-
-            return super.onOptionsItemSelected(item);
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
         }
 
-        @Override
-        public void onFragmentInteraction(Uri uri){
+        return super.onOptionsItemSelected(item);
+    }
 
-        }
+    @Override
+    public void onFragmentInteraction(Uri uri){
+
+    }
     CountDownTimer countDownTimer;
     private void startTimer(final int minuti) {
         countDownTimer = new CountDownTimer(60 * minuti * 1000, 500) {

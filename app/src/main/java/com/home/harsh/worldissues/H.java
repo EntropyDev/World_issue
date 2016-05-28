@@ -76,6 +76,7 @@ public class H extends Fragment implements View.OnClickListener {
         score1=(TextView)view.findViewById(R.id.score1);
         score2=(TextView)view.findViewById(R.id.score2);
         v=(Button)view.findViewById(R.id.V_minus);
+        submit=(Button)view.findViewById(R.id.submit);
         m=(Button)view.findViewById(R.id.M_minus);
         t=(Button)view.findViewById(R.id.T_minus);
         v.setOnClickListener(this);

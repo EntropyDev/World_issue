@@ -5,43 +5,43 @@
     android:background="@drawable/worldmap"
     tools:context="com.home.harsh.worldissues.WorldFragment">
 
-    <RelativeLayout
+    <AbsoluteLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
         >
 
 
-        <Button
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_x="150px"
-            android:layout_y="150px"
-            android:text="chicago"
-
-
+            android:layout_x="200px"
+            android:layout_y="170px"
             android:id="@+id/chicago"
-            android:background="@color/colorAccent"
+
+            android:background="@mipmap/ic_room_black_24dp"
             />
-        <Button
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/chicago"
             android:id="@+id/hyb"
             android:text="hyb"
-            android:background="@color/colorAccent"
+            android:layout_x="740px"
+            android:layout_y="210px"
+            android:background="@mipmap/ic_room_black_24dp"
             />
-        <Button
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_x="250px"
-            android:layout_y="50px"
+            android:layout_x="950px"
+            android:layout_y="330px"
             android:id="@+id/sydney"
             android:layout_below="@id/hyb"
             android:text="sydney"
-            android:background="@color/colorAccent"
+            android:background="@mipmap/ic_room_black_24dp"
             />
-    </RelativeLayout>
+    </AbsoluteLayout>
     <!-- TODO: Update blank fragment layout -->
 
 
