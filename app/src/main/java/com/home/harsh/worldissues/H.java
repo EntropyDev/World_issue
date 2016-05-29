@@ -134,23 +134,45 @@ public class H extends Fragment implements View.OnClickListener ,FragmentManager
     int t_c = 0;
     @Override
     public void onClick(View v) {
-
-
+        Toolbar toolbar=(Toolbar)getActivity().findViewById(R.id.toolbar);
+        TextView textView;
         switch (v.getId()){
-            case R.id.V_minus:
+            case R.id.V_minus: {
+                textView = (TextView) toolbar.findViewById(R.id.Volu_f);
+                Integer a = new Integer(textView.getText().toString());
+                int b = a.intValue();
+                if(b>0)
+                    b--;
+                textView.setText(String.valueOf(b));
+                Log.d("toolbar v", textView.getText().toString());
                 v_c++;
-                Log.d("V-min",String.valueOf(v_c));
+                Log.d("V-min", String.valueOf(v_c));
                 break;
-            case R.id.T_minus:
+            }
+            case R.id.T_minus: {
+                textView = (TextView) toolbar.findViewById(R.id.Tech_f);
+                Integer a = new Integer(textView.getText().toString());
+                int b = a.intValue();
+                if(b>0)
+                    b--;
+                textView.setText(String.valueOf(b));
                 t_c++;
                 break;
-            case R.id.M_minus:
+            }
+            case R.id.M_minus: {
+                textView = (TextView) toolbar.findViewById(R.id.M_T_f);
+                Integer a = new Integer(textView.getText().toString());
+                int b = a.intValue();
+                if(b>0)
+                    b--;
+                textView.setText(String.valueOf(b));
                 m_c++;
                 break;
-            case R.id.submit:
-                score_h=0;
+            }
+            case R.id.submit: {
+                score_h = 0;
                 if (t_c > v_c && v_c > m_c) {
-                    if (m_c==1 && v_c==3 && t_c==4) {
+                    if (m_c == 1 && v_c == 3 && t_c == 4) {
                         score_h = 10;
 
                     } else {
@@ -160,14 +182,14 @@ public class H extends Fragment implements View.OnClickListener ,FragmentManager
                     score_h = 5;
                 }
                 Log.d("score", String.valueOf(score_h));
-                SCORE_H=String.valueOf(score_h);
-                newInstance(SCORE_H,String.valueOf(score_h));
+                SCORE_H = String.valueOf(score_h);
+                newInstance(SCORE_H, String.valueOf(score_h));
                 fragTran[0] = fragmentManager.beginTransaction();
-                fragTran[0].replace(R.id.frame_container,percentage);
+                fragTran[0].replace(R.id.frame_container, percentage);
                 fragTran[0].addToBackStack(null);
                 fragTran[0].commit();
                 break;
-
+            }
         }
     }
 

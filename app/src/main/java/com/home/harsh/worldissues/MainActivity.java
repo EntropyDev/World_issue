@@ -28,6 +28,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.view.View.OnTouchListener;
 
+import com.twitter.sdk.android.Twitter;
+import com.twitter.sdk.android.core.TwitterAuthConfig;
 import com.wacom.ink.path.PathBuilder.PropertyFunction;
 import com.wacom.ink.path.PathBuilder.PropertyName;
 import com.wacom.ink.path.PathUtils;
@@ -43,6 +45,7 @@ import com.wacom.ink.rendering.EGLRenderingContext.EGLConfiguration;
 import com.wacom.ink.smooth.MultiChannelSmoothener;
 import com.wacom.ink.smooth.MultiChannelSmoothener.SmoothingResult;
 
+import io.fabric.sdk.android.Fabric;
 import java.nio.FloatBuffer;
 import java.util.Timer;
 /*import io.fabric.sdk.android.Fabric;
@@ -52,6 +55,11 @@ import java.util.TimerTask;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
 import io.fabric.sdk.android.Fabric;*/
 public class MainActivity extends AppCompatActivity implements WorldFragment.OnFragmentInteractionListener,IssuesFragment.OnFragmentInteractionListener,P.OnFragmentInteractionListener,S.OnFragmentInteractionListener,H.OnFragmentInteractionListener,Percentage.OnFragmentInteractionListener,FragmentManager.OnBackStackChangedListener{
+
+    // Note: Your consumer key and secret should be obfuscated in your source code before shipping.
+    private static final String TWITTER_KEY = "NsCLf3amn1Pd1TVF2JJMUoRa5";
+    private static final String TWITTER_SECRET = "NgkI8nCDe4HnTArvCq7vOHVqOPBCBTd4wERA408m1vccMFuldU";
+
     TextView score1,score2,v_t,m_t,t_t;
     private InkCanvas inkCanvas;
     private Layer viewLayer;
@@ -75,6 +83,8 @@ public class MainActivity extends AppCompatActivity implements WorldFragment.OnF
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
+        Fabric.with(this, new Twitter(authConfig));
         setContentView(R.layout.activity_main);
         pathBuilder = new SpeedPathBuilder();
         pathBuilder.setNormalizationConfig(100.0f, 4000.0f);
