@@ -1,6 +1,7 @@
 package com.home.harsh.worldissues;
 
 import android.graphics.Bitmap;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -36,8 +37,8 @@ public class WacomActivity extends AppCompatActivity {
         web.getSettings().setDefaultTextEncodingName("utf-8");
         web.getSettings().setJavaScriptEnabled(true);
         web.setWebViewClient(new WebViewClient());
-         //progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        //progressBar.setVisibility(View.VISIBLE);
+         progressBar = (ProgressBar) findViewById(R.id.progressBar1);
+        progressBar.setVisibility(View.VISIBLE);
         Toast t=Toast.makeText(getApplicationContext(), "Select the domain please", Toast.LENGTH_LONG);
         t.show();
         button.setOnClickListener(new View.OnClickListener() {
@@ -46,6 +47,14 @@ public class WacomActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 web.loadUrl(URL);
+                Handler h=new Handler();
+                h.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        progressBar.setVisibility(View.GONE);
+                    }
+                },4000);
+
             }
         });
     }
@@ -53,7 +62,7 @@ public class WacomActivity extends AppCompatActivity {
         @Override
         public void onPageStarted(WebView view, String url, Bitmap favicon) {
             super.onPageStarted(view, url, favicon);
-            //progressBar.setVisibility(View.GONE);
+            progressBar.setVisibility(View.GONE);
         }
 
         @Override
@@ -75,6 +84,7 @@ public class WacomActivity extends AppCompatActivity {
 
             //web.loadUrl("http://m.axisbank.com/#/smartphone/personal/index.aspx/#googtrans(en|hi)");
             view.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+            progressBar.setVisibility(View.GONE);
             /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                 view.evaluateJavascript("function addRow() {\n" +
                         "    var div = document.createElement('div');\n" +
