@@ -14,7 +14,7 @@
    <TextView
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:text="Balance : "
+       android:text="Balance : INR"
        android:id="@+id/score1"
        android:layout_marginTop="10dp"
 
@@ -32,6 +32,13 @@
        android:layout_toEndOf="@+id/score1"
        android:layout_marginLeft="21dp"
        android:layout_marginStart="21dp" />
+   <SurfaceView
+       android:layout_height="300dp"
+       android:layout_width="800dp"
+       android:id="@+id/surfaceview"
+       android:layout_marginTop="50dp"
+       android:layout_marginBottom="0dp"
+       />
    <FrameLayout
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
