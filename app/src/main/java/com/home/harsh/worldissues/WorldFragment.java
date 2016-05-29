@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.os.Handler;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -27,7 +28,7 @@ import android.widget.TextView;
  * Use the {@link WorldFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class WorldFragment extends Fragment implements View.OnClickListener {
+public class WorldFragment extends Fragment implements View.OnClickListener,FragmentManager.OnBackStackChangedListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -158,6 +159,15 @@ public class WorldFragment extends Fragment implements View.OnClickListener {
             default:
 
         }
+
+    }
+
+    @Override
+    public void onBackStackChanged() {
+
+        boolean canback = ((AppCompatActivity) getActivity()).getSupportFragmentManager().getBackStackEntryCount()>0;
+        Log.d("backstack",String.valueOf(canback));
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(canback);
 
     }
 

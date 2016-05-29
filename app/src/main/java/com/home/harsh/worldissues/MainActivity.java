@@ -51,7 +51,7 @@ import java.util.TimerTask;
 /*import com.twitter.sdk.android.Twitter;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
 import io.fabric.sdk.android.Fabric;*/
-public class MainActivity extends AppCompatActivity implements WorldFragment.OnFragmentInteractionListener,IssuesFragment.OnFragmentInteractionListener,P.OnFragmentInteractionListener,S.OnFragmentInteractionListener,H.OnFragmentInteractionListener{
+public class MainActivity extends AppCompatActivity implements WorldFragment.OnFragmentInteractionListener,IssuesFragment.OnFragmentInteractionListener,P.OnFragmentInteractionListener,S.OnFragmentInteractionListener,H.OnFragmentInteractionListener,Percentage.OnFragmentInteractionListener,FragmentManager.OnBackStackChangedListener{
     TextView score1,score2,v_t,m_t,t_t;
     private InkCanvas inkCanvas;
     private Layer viewLayer;
@@ -311,11 +311,19 @@ public class MainActivity extends AppCompatActivity implements WorldFragment.OnF
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.ngo) {
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    @Override
+    public void onBackPressed() {
+        if (getFragmentManager().getBackStackEntryCount() == 0) {
+            this.finish();
+        } else {
+            getFragmentManager().popBackStack();
+        }
     }
 
     @Override
@@ -342,6 +350,15 @@ public class MainActivity extends AppCompatActivity implements WorldFragment.OnF
             public void onFinish() {
             }
         }.start();
+
+    }
+
+    @Override
+    public void onBackStackChanged() {
+
+        boolean canback = this.getSupportFragmentManager().getBackStackEntryCount()>0;
+        Log.d("backstack",String.valueOf(canback));
+        this.getSupportActionBar().setDisplayHomeAsUpEnabled(canback);
 
     }
 }

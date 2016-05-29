@@ -1,9 +1,12 @@
 package com.home.harsh.worldissues;
 
+import android.app.FragmentManager;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +20,7 @@ import android.view.ViewGroup;
  * Use the {@link S#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class S extends Fragment {
+public class S extends Fragment implements FragmentManager.OnBackStackChangedListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -89,6 +92,15 @@ public class S extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    @Override
+    public void onBackStackChanged() {
+
+        boolean canback = ((AppCompatActivity) getActivity()).getSupportFragmentManager().getBackStackEntryCount()>0;
+        Log.d("backstack",String.valueOf(canback));
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(canback);
+
     }
 
     /**

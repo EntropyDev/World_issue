@@ -3,8 +3,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.home.harsh.worldissues.MainActivity">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/ngo"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="NGO"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/politics"
+        android:orderInCategory="100"
+        android:title="Politics"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/women"
+        android:orderInCategory="100"
+        android:title="Women"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/education"
+        android:orderInCategory="100"
+        android:title="Education"
+        app:showAsAction="never" />
+
+
 </menu>
